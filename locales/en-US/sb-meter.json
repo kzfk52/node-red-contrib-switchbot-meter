@@ -1,0 +1,12 @@
+{
+  "sbmeter": {
+    "label": {
+      "name": "Name",
+      "macaddr": "BLE MacAddr"
+    },
+    "placeholder": {
+      "name": "Name",
+      "macaddr": "require device bluetooth macaddr (xx:xx:xx:xx:xx:xx)"
+    }
+  }
+}

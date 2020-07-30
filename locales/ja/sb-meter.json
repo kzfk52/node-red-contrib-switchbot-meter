@@ -1,0 +1,12 @@
+{
+  "sbmeter": {
+    "label": {
+      "name": "名前",
+      "macaddr": "BLE MACアドレス"
+    },
+    "placeholder": {
+      "name": "名前",
+      "macaddr": "BLE MACアドレスが必要（xx:xx:xx:xx:xx:xx）"
+    }
+  }
+}

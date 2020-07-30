@@ -1,0 +1,200 @@
+[
+  {
+    "id": "af60ad89.177b4",
+    "type": "tab",
+    "label": "node-red-sample-flow",
+    "disabled": false,
+    "info": ""
+  },
+  {
+    "id": "d6a7ac9d.3bd47",
+    "type": "trigger",
+    "z": "af60ad89.177b4",
+    "name": "",
+    "op1": "",
+    "op2": "",
+    "op1type": "nul",
+    "op2type": "payl",
+    "duration": "120",
+    "extend": false,
+    "units": "s",
+    "reset": "",
+    "bytopic": "all",
+    "topic": "topic",
+    "outputs": 1,
+    "x": 410,
+    "y": 640,
+    "wires": [["da69eb47.834318"]]
+  },
+  {
+    "id": "da69eb47.834318",
+    "type": "change",
+    "z": "af60ad89.177b4",
+    "name": "temperature to d1, humidity to d2 Assign",
+    "rules": [
+      {
+        "t": "set",
+        "p": "payload.d1",
+        "pt": "msg",
+        "to": "meter.temperature",
+        "tot": "msg"
+      },
+      {
+        "t": "set",
+        "p": "payload.d2",
+        "pt": "msg",
+        "to": "meter.humidity",
+        "tot": "msg"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 440,
+    "y": 780,
+    "wires": [["c27380a1.e2b4d", "d8be387e.14d4b8"]]
+  },
+  {
+    "id": "48c8b688.c52548",
+    "type": "switch",
+    "z": "af60ad89.177b4",
+    "name": "temperature not null check",
+    "property": "meter.temperature",
+    "propertyType": "msg",
+    "rules": [
+      {
+        "t": "nnull"
+      }
+    ],
+    "checkall": "true",
+    "repair": false,
+    "outputs": 1,
+    "x": 420,
+    "y": 500,
+    "wires": [["d53c5848.ff6778", "d6a7ac9d.3bd47"]]
+  },
+  {
+    "id": "c27380a1.e2b4d",
+    "type": "debug",
+    "z": "af60ad89.177b4",
+    "name": "post payload",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 730,
+    "y": 780,
+    "wires": []
+  },
+  {
+    "id": "248db15d.48f67e",
+    "type": "inject",
+    "z": "af60ad89.177b4",
+    "name": "test meter payload",
+    "props": [
+      {
+        "p": "payload.aaa",
+        "v": "",
+        "vt": "date"
+      },
+      {
+        "p": "payload.rssi",
+        "v": "-70",
+        "vt": "num"
+      },
+      {
+        "p": "payload.temperature",
+        "v": "$random() * 100 / 2\t",
+        "vt": "jsonata"
+      },
+      {
+        "p": "payload.humidity",
+        "v": "45",
+        "vt": "num"
+      },
+      {
+        "p": "payload.battery",
+        "v": "100",
+        "vt": "num"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "x": 150,
+    "y": 540,
+    "wires": [["48c8b688.c52548"]]
+  },
+  {
+    "id": "d53c5848.ff6778",
+    "type": "debug",
+    "z": "af60ad89.177b4",
+    "name": "trigger before output: msg.meter",
+    "active": false,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "meter",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 730,
+    "y": 500,
+    "wires": []
+  },
+  {
+    "id": "3374da67.f30f36",
+    "type": "sbotMeter",
+    "z": "af60ad89.177b4",
+    "name": "Meter",
+    "macaddress": "",
+    "x": 190,
+    "y": 500,
+    "wires": [["48c8b688.c52548"]]
+  },
+  {
+    "id": "d8be387e.14d4b8",
+    "type": "debug",
+    "z": "af60ad89.177b4",
+    "name": "original meter object",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "meter",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 760,
+    "y": 820,
+    "wires": []
+  },
+  {
+    "id": "84fc2f62.18807",
+    "type": "comment",
+    "z": "af60ad89.177b4",
+    "name": "Destination",
+    "info": "",
+    "x": 720,
+    "y": 740,
+    "wires": []
+  },
+  {
+    "id": "f78b8281.d5052",
+    "type": "comment",
+    "z": "af60ad89.177b4",
+    "name": "Latest msg object resend",
+    "info": "",
+    "x": 550,
+    "y": 600,
+    "wires": []
+  }
+]

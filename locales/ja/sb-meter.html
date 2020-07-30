@@ -1,0 +1,27 @@
+<!-- help file -->
+<script type="text/html" data-help-name="sbotMeter">
+  <p>
+    SwitchBot温湿度計から読み取るnodeです
+  </p>
+  <p>
+    BLE MACアドレスフィールドはSwitchBotMeterのbluetooth MACアドレスで、必須です。
+  </p>
+
+  <p>
+    <div>出力される<code>msg</code>は次のような<code>msg</code>オブジェクトです。</div>
+    <div class="highlight highlight-source-json">
+    <pre>
+  {
+    "meter": {
+      "macaddress":"xx:xx:xx:xx:xx:xx",
+      "rssi":-50,
+      "temperature":27.6,
+      "temperature_f":81.6,
+      "humidity":53,
+      "battery":100
+    }
+  }
+      </pre>
+    </div>
+  </p>
+</script>

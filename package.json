@@ -1,0 +1,52 @@
+{
+  "name": "@kzfk52/node-red-contrib-switchbot-meter",
+  "version": "0.0.1",
+  "description": "SwitchBot Meter node get advertisement BLE data",
+  "main": "sb-meter.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 0"
+  },
+  "node-red": {
+    "nodes": {
+      "sbotMeter": "sb-meter.js"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kzfk52/node-red-contrib-switchbot-meter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kzfk52/node-red-contrib-switchbot-meter/issues"
+  },
+  "keywords": [
+    "SwitchBot",
+    "node-red",
+    "Meter"
+  ],
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "engineStrict": true,
+  "homepage": "https://github.com/kzfk52",
+  "author": "Kazuyuki Fukuda",
+  "license": "MIT",
+  "dependencies": {
+    "@abandonware/noble": "^1.9.2-9",
+    "node-switchbot": "0.0.5"
+  },
+  "devDependencies": {
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/git": "^9.0.0",
+    "semantic-release": "^17.1.1"
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/github",
+      "@semantic-release/git"
+    ]
+  }
+}

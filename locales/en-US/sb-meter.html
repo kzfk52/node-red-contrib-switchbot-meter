@@ -1,0 +1,28 @@
+<!-- help file -->
+<script type="text/html" data-help-name="sbotMeter">
+  <p>
+    Node to read from the SwitchBot Meter
+  </p>
+  <p>
+    The BLE mac address field is the bluetooth mac address of the SwitchBotMeter,
+    required.
+  </p>
+
+  <p>
+    <div>The output <code>msg</code> is the following <code>msg</code> object.</div>
+    <div class="highlight highlight-source-json">
+      <pre>
+  {
+    "meter": {
+      "macaddress":"xx:xx:xx:xx:xx:xx",
+      "rssi":-50,
+      "temperature":27.6,
+      "temperature_f":81.6,
+      "humidity":53,
+      "battery":100
+    }
+  }
+      </pre>
+    </div>
+  </p>
+</script>
